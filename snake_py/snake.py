@@ -1,4 +1,6 @@
 from turtle import Turtle
+
+
 STARTING_POSITIONS = [(0,0),(-20,0),(-40,0)]
 MOVE_DISTANS = 20
 
@@ -24,7 +26,7 @@ class Snake:
         timmy_turtle.goto(position)
         self.snake.append(timmy_turtle)
 
-    def exend (self):
+    def extend (self):
         self.add_segment(self.snake[-1].position())
 
 
@@ -36,6 +38,14 @@ class Snake:
             self.snake[index].goto(new_x, new_y)
 
         self.head.forward(MOVE_DISTANS)
+
+    def reset(self):
+        for segment in self.snake:
+            segment.goto(1000,1000)
+
+        self.snake.clear()
+        self.create_snake()
+        self.head = self.snake[0]
 
 
 
